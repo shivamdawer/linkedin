@@ -9,8 +9,22 @@ To install (Python 3)
 
 ::
 
-    $ python -m venv venv
+    $ python -m virtualenv venv
     $ ./venv/bin/pip install -r requirements.txt
+
+
+To install Selenium, Chrome, and 'ChromeDriver' :
+    https://gist.github.com/ziadoz/3e8ab7e944d02fe872c3454d17af31a5
+
+
+To install firefox 39.0.3 :
+
+::
+
+    $ sudo apt-get purge firefox
+    $ wget sourceforge.net/projects/ubuntuzilla/files/mozilla/apt/pool/main/f/firefox-mozilla-build/firefox-mozilla-build_39.0.3-0ubuntu1_amd64.deb
+    $ sudo dpkg -i firefox-mozilla-build_39.0.3-0ubuntu1_amd64.deb
+
 
 Ubuntu
 
@@ -36,4 +50,4 @@ To run crawler
 
 ::
 
-    $ python linkedin.py crawl me@email.com list_of_names.csv dump_profiles_here.csv --browser=firefox
+    $ python linkedin.py crawl me@email.com list_of_names.csv --browser=chrome
