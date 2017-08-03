@@ -148,19 +148,29 @@ def crawl(browser, username, infile):
         
         for profile in all_profiles:
             click.echo("Getting... " + profile)
-            bus.driver.get(profile)
-            dropdown = bus.driver.find_element_by_css_selector('.dropdown.pv-top-card-overflow')
-            actions = ActionChains(bus.driver)
-            actions.click(dropdown)
-            actions.perform()
-            time.sleep(2)
-        
-            btn = bus.driver.find_element_by_css_selector('.actions .action.save-to-pdf')
-            actions = ActionChains(bus.driver)
-            actions.click(btn)
-            actions.perform()
-            time.sleep(5)
-
+            try:
+                bus.driver.get(profile)
+            except:
+                continue
+            
+            try:
+                dropdown = bus.driver.find_element_by_css_selector('.dropdown.pv-top-card-overflow')
+                actions = ActionChains(bus.driver)
+                actions.click(dropdown)
+                actions.perform()
+                time.sleep(2)
+            except:
+                continue
+            
+            try:
+                btn = bus.driver.find_element_by_css_selector('.actions .action.save-to-pdf')
+                actions = ActionChains(bus.driver)
+                actions.click(btn)
+                actions.perform()
+                time.sleep(5)
+            except:
+                continue
+            
 
 @click.command()
 @click.argument('username')
