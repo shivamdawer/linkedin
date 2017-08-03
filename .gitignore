@@ -17,3 +17,6 @@ venv/
 
 # ignore project specific files/directories
 *.csv
+
+run.sh
+!.example.sh
